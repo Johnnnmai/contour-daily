@@ -63,7 +63,7 @@ function showResult(){
   $('verdict').textContent=st.won?('Solved in '+st.g.length+'/6'):'Out of guesses';
   $('answerName').textContent=A.n;
   var f=$('facts');f.innerHTML='';
-  [['Region',A.region],['Capital',A.capital],['Area','about '+sig3(A.area).toLocaleString()+' km²'],['Land neighbours',A.borders===0?'none':String(A.borders)+(A.landlocked?' (landlocked)':'')]].forEach(function(x){var li=document.createElement('li');li.innerHTML='<b></b> ';li.firstChild.textContent=x[0]+':';li.appendChild(document.createTextNode(x[1]));f.appendChild(li);});
+  [['Region',A.region],['Capital',A.capital],['Area','about '+sig3(A.area).toLocaleString()+' km²'],['Bordering countries',A.borders===0?'none':String(A.borders)+(A.landlocked?' (landlocked)':'')]].forEach(function(x){var li=document.createElement('li');li.innerHTML='<b></b> ';li.firstChild.textContent=x[0]+':';li.appendChild(document.createTextNode(x[1]));f.appendChild(li);});
   $('wikiLink').href=A.wiki;
   $('sharePreview').textContent=shareText();
 }
