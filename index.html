@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Contour: guess the country from its outline</title>
+<meta name="description" content="One country outline a day. Six guesses. Distance, direction and a new clue after every miss. Free, no sign-up.">
+<link rel="canonical" href="https://johnnnmai.github.io/contour-daily/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contour: one country outline a day">
+<meta property="og:description" content="Six guesses. Distance, direction and a new clue after every miss.">
+<meta property="og:url" content="https://johnnnmai.github.io/contour-daily/">
+<meta property="og:image" content="https://johnnnmai.github.io/contour-daily/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johnnnmai.github.io/contour-daily/og.png">
+<meta name="theme-color" content="#F4EFE6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="./" aria-label="Contour home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 21c-2-5 1-11 6-13 4-2 6 1 9 0 3-1 5 2 4 6-1 3-4 3-4 7 0 3-4 5-8 4-3-1-6-1-7-4z" fill="#1B1A17"/><circle cx="22" cy="10" r="2.6" fill="#E4572E"/></svg><span>Contour</span></a>
+  <nav>
+    <button class="icon" id="btnHelp" aria-label="How to play">?</button>
+    <button class="icon" id="btnStats" aria-label="Your stats"><svg viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  </nav>
+</header>
+
+<main>
+  <p class="kicker"><span id="puzzleNo">No. 1</span> · <span id="todayLabel"></span></p>
+  <h1>Which country is this?</h1>
+
+  <figure class="stage">
+    <svg id="shape" viewBox="0 0 300 300" role="img" aria-label="Outline of today's mystery country"><path id="shapePath" d=""/></svg>
+    <figcaption id="compass" aria-hidden="true">N</figcaption>
+  </figure>
+
+  <div id="clues" class="clues" aria-live="polite"></div>
+
+  <form id="guessForm" autocomplete="off">
+    <label for="guess" class="sr">Your guess</label>
+    <input id="guess" list="countryList" placeholder="Type a country" enterkeyhint="go" autocapitalize="words" spellcheck="false">
+    <datalist id="countryList"></datalist>
+    <button type="submit" id="guessBtn">Guess</button>
+  </form>
+  <p id="msg" class="msg" role="status"></p>
+
+  <ol id="guesses" class="guesses"></ol>
+
+  <section id="result" class="result" hidden>
+    <p class="verdict" id="verdict"></p>
+    <p class="answer" id="answerName"></p>
+    <ul class="facts" id="facts"></ul>
+    <div class="actions">
+      <button id="shareBtn" class="primary">Copy result</button>
+      <a id="wikiLink" class="ghost" target="_blank" rel="noopener">Read about it</a>
+    </div>
+    <pre id="sharePreview" class="share-preview" aria-label="Share preview"></pre>
+    <p class="next">Next outline in <b id="countdown">--:--:--</b></p>
+    <a class="pro" href="https://puzzlebind.com/pricing/?utm_source=ai_game&amp;utm_medium=referral&amp;utm_campaign=contour" target="_blank" rel="noopener">
+      <span class="pro-tag">More puzzles</span>
+      <span class="pro-copy">Done for today? Make your own printable puzzle books: Sudoku, word search and mazes.</span>
+      <span class="pro-arrow" aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <aside class="ad-slot" aria-label="Advertisement"><span>Ad space</span></aside>
+</main>
+
+<footer>
+  <p>New outline every day at midnight, your time. Outlines from Natural Earth (public domain). Facts cross-checked against two open datasets.</p>
+  <p><a href="https://puzzlebind.com/pricing/?utm_source=ai_game&amp;utm_medium=referral&amp;utm_campaign=contour_footer" target="_blank" rel="noopener">More puzzles</a></p>
+</footer>
+
+<dialog id="dlgHelp">
+  <h2>How to play</h2>
+  <ol>
+    <li>Guess the country from its outline. You get <b>6 tries</b>.</li>
+    <li>Each miss shows how far away you are and which way to go.</li>
+    <li>Each miss also unlocks a clue: region, size, neighbours, then the capital.</li>
+    <li>Share your grid. Everyone gets the same outline each day.</li>
+  </ol>
+  <p class="small">The outline shows the main landmass. Far-off islands and territories may be left out.</p>
+  <button class="primary" data-close>Play</button>
+</dialog>
+
+<dialog id="dlgStats">
+  <h2>Your stats</h2>
+  <div class="statgrid">
+    <div><b id="stPlayed">0</b><span>Played</span></div>
+    <div><b id="stWin">0</b><span>Win %</span></div>
+    <div><b id="stStreak">0</b><span>Streak</span></div>
+    <div><b id="stMax">0</b><span>Best</span></div>
+  </div>
+  <div id="dist" class="dist"></div>
+  <button class="primary" data-close>Close</button>
+</dialog>
+
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
