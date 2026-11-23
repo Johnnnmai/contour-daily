@@ -26,7 +26,7 @@ function sig3(n){var p=Math.pow(10,Math.max(0,Math.floor(Math.log10(n))-2));retu
 function clue(k){
   if(k===1)return 'Region: <b>'+A.region+'</b>';
   if(k===2)return 'Area: about <b>'+sig3(A.area).toLocaleString()+' km²</b>';
-  if(k===3)return A.borders===0?'<b>No land borders</b>':'<b>'+A.borders+'</b> land neighbour'+(A.borders>1?'s':'')+(A.landlocked?' · <b>landlocked</b>':'');
+  if(k===3)return A.borders===0?'<b>No land borders</b>':'<b>'+A.borders+'</b> bordering countr'+(A.borders>1?'ies':'y')+(A.landlocked?' · <b>landlocked</b>':'');
   if(k===4)return 'Capital starts with <b>'+A.capital.charAt(0)+'</b>';
   if(k===5)return 'Capital: <b>'+A.capital+'</b>';
 }
