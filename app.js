@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-var SITE='https://johnnnmai.github.io/contour-daily/';
+var SITE='https://contour.valenx.org/';
 var EPOCH=new Date(2026,10,23); // day No. 1, local midnight
 var MAX=6;
 var $=function(id){return document.getElementById(id);};
