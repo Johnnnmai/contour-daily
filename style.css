@@ -64,3 +64,8 @@ dialog ol{padding-left:20px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (min-width:700px){.bar,main,footer{max-width:600px}}
 form[hidden]{display:none}
+.howto{margin:4px 0 10px;font-size:14px;color:var(--muted)}
+.rank{font-size:14px;margin:10px 0 0}
+.lb-list{padding-left:18px}
+.lb-shape{display:block;width:180px;height:180px;margin:10px auto}
+.lb-shape path{fill:var(--ink)}

@@ -66,6 +66,16 @@ function showResult(){
   [['Region',A.region],['Capital',A.capital],['Area','about '+sig3(A.area).toLocaleString()+' km²'],['Bordering countries',A.borders===0?'none':String(A.borders)+(A.landlocked?' (landlocked)':'')]].forEach(function(x){var li=document.createElement('li');li.innerHTML='<b></b> ';li.firstChild.textContent=x[0]+':';li.appendChild(document.createTextNode(x[1]));f.appendChild(li);});
   $('wikiLink').href=A.wiki;
   $('sharePreview').textContent=shareText();
+  $('rankLine').textContent=rankText();
+}
+// Today's rank among this player's own games on this device. Contour has no accounts or server,
+// so no global ranking exists; we say so instead of inventing one.
+function rankText(){
+  var n=stats.played;if(!n)return '';
+  var better=0,g=st.won?st.g.length:7;
+  for(var i=0;i<6;i++){if(i+1<g)better+=stats.dist[i];}
+  var r=better+1;
+  return "Today's rank: #"+r+' of your '+n+' game'+(n===1?'':'s')+' on this device. Global rankings are not collected.';
 }
 function shareText(){
   var lines=['Contour No. '+(day+1)+'  '+(st.won?st.g.length:'X')+'/6'];
@@ -112,6 +122,6 @@ function openStats(){
 }
 $('btnStats').onclick=openStats;$('btnHelp').onclick=function(){$('dlgHelp').showModal();};
 document.querySelectorAll('[data-close]').forEach(function(b){b.onclick=function(){b.closest('dialog').close();};});
-if(!localStorage.getItem('contour:seen')){localStorage.setItem('contour:seen','1');try{$('dlgHelp').showModal();}catch(e){}}
+// No modal on first visit: search visitors go straight to the first guess (rules shown inline under the heading).
 render();
 })();

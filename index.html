@@ -33,6 +33,7 @@
 <main>
   <p class="kicker"><span id="puzzleNo">No. 1</span> · <span id="todayLabel"></span></p>
   <h1>Which country is this?</h1>
+  <p class="howto">Type a country and press Guess. Six tries. Each miss shows distance, direction and a new clue. No sign-up.</p>
 
   <figure class="stage">
     <svg id="shape" viewBox="0 0 300 300" role="img" aria-label="Outline of today's mystery country"><path id="shapePath" d=""/></svg>
@@ -60,7 +61,9 @@
       <a id="wikiLink" class="ghost" target="_blank" rel="noopener">Read about it</a>
     </div>
     <pre id="sharePreview" class="share-preview" aria-label="Share preview"></pre>
-    <p class="next">Next outline in <b id="countdown">--:--:--</b></p>
+    <p class="rank" id="rankLine"></p>
+    <p class="next"><b>New puzzle tomorrow.</b> Next outline in <b id="countdown">--:--:--</b></p>
+    <p class="small"><a href="/leaderboard/yesterday/">Yesterday's answer and results</a></p>
     <a class="pro" href="https://puzzlebind.com/pricing/?utm_source=ai_game&amp;utm_medium=referral&amp;utm_campaign=contour" target="_blank" rel="noopener">
       <span class="pro-tag">More puzzles</span>
       <span class="pro-copy">Done for today? Make your own printable puzzle books: Sudoku, word search and mazes.</span>
@@ -73,7 +76,7 @@
 
 <footer>
   <p>New outline every day at midnight, your time. Outlines from Natural Earth (public domain). Facts cross-checked against two open datasets.</p>
-  <p><a href="https://puzzlebind.com/pricing/?utm_source=ai_game&amp;utm_medium=referral&amp;utm_campaign=contour_footer" target="_blank" rel="noopener">More puzzles</a></p>
+  <p><a href="/leaderboard/yesterday/">Yesterday's answer</a> · <a href="/leaderboard/">All past puzzles</a> · <a href="https://puzzlebind.com/pricing/?utm_source=ai_game&amp;utm_medium=referral&amp;utm_campaign=contour_footer" target="_blank" rel="noopener">More puzzles</a></p>
 </footer>
 
 <dialog id="dlgHelp">
